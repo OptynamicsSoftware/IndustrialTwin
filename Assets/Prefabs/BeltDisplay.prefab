@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 1718092863894384116}
   - component: {fileID: 1718092863894384117}
   m_Layer: 5
-  m_Name: BeltSettings1
+  m_Name: BeltDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

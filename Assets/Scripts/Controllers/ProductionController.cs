@@ -9,8 +9,8 @@ namespace Twin
 {
     public class ProductionController : MonoBehaviour
     {
-        private List<ProcessMachine> m_tMachines = new List<ProcessMachine>();
-        private List<ConveyerBelt> m_tBelts = new List<ConveyerBelt>();
+        private List<Machine> m_tMachines = new List<Machine>();
+        private List<Belt> m_tBelts = new List<Belt>();
         private List<OutputTruck> m_tTrucks = new List<OutputTruck>();
 
         private List<ActivationButton> m_tActivationButtons = new List<ActivationButton>();
@@ -22,8 +22,8 @@ namespace Twin
 
         private void Start()
         {
-            m_tMachines = FindObjectsOfType<ProcessMachine>().ToList();
-            m_tBelts = FindObjectsOfType<ConveyerBelt>().ToList();
+            m_tMachines = FindObjectsOfType<Machine>().ToList();
+            m_tBelts = FindObjectsOfType<Belt>().ToList();
             m_tTrucks = FindObjectsOfType<OutputTruck>().ToList();
             m_tActivationButtons = FindObjectsOfType<ActivationButton>().ToList();
 

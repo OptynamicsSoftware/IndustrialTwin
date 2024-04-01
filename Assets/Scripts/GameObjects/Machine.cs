@@ -6,7 +6,7 @@ using UnityEngine.TestTools;
 namespace Twin
 {
 
-    public class ProcessMachine : MonoBehaviour
+    public class Machine : MonoBehaviour
     {
         public string m_sProcessName;
         public ProductType m_oProductType;
@@ -29,7 +29,7 @@ namespace Twin
         public MeshRenderer m_oActionDisplay;
 
         [HideInInspector]
-        public BuildMachineDisplay m_oDisplay;
+        public MachineDisplay m_oDisplay;
 
         ProductLibrary m_oLibrary;
 

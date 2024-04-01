@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Twin
 {
-    public class ConveyerBelt : MonoBehaviour //Cinta transportadora de un storage a otro
+    public class Belt : MonoBehaviour //Cinta transportadora de un storage a otro
     {
         //Añadir espacio para cada producto
         public string m_sProcessName;

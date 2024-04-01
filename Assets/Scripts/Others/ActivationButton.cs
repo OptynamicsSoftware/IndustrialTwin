@@ -12,8 +12,8 @@ namespace Twin
 
         public bool m_bStatus;
 
-        public ProcessMachine m_oLinkedMachine;
-        public ConveyerBelt m_oLinkedBelt;
+        public Machine m_oLinkedMachine;
+        public Belt m_oLinkedBelt;
 
         [HideInInspector]
         public Material m_oGreenMat, m_oRedMat;

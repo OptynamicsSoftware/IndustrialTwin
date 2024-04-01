@@ -9,7 +9,7 @@ namespace Twin
     {
         public Text m_oSpeedValue, m_oIntervalValue;
         public Image m_oStatus;
-        public ConveyerBelt m_oBelt;
+        public Belt m_oBelt;
 
         private void Start()
         {

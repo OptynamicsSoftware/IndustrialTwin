@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 namespace Twin
 {
-    public class BuildMachineDisplay : MonoBehaviour
+    public class MachineDisplay : MonoBehaviour
     {
         public Text m_oName, m_oProgressValue, m_oInfoText, m_oTimeValue;
         public Image m_oFill, m_oBackground, m_oStatus;
         public Slider m_oSlider;
-        public ProcessMachine m_oLinkedMachine;
+        public Machine m_oLinkedMachine;
 
         private void Start()
         {
