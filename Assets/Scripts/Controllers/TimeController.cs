@@ -18,7 +18,7 @@ namespace Twin
 
         private void Start()
         {
-            Time.timeScale = 1;
+            Time.timeScale = 16;
             Instance = this;
         }
 

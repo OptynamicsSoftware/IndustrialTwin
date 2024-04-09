@@ -29,13 +29,19 @@ namespace Twin
         private void Start()
         {
             m_fDistance = Vector3.Distance(m_oStorageSource.transform.position,m_oStorageDestination.transform.position);
-            m_oDisplay.ShowStatus(m_bEnabled);
+            if(m_oDisplay != null)
+            {
+                m_oDisplay.ShowStatus(m_bEnabled);
+            }
         }
 
         public void SetEnabled(bool enabled)
         {
             m_bEnabled = enabled;
-            m_oDisplay.ShowStatus(m_bEnabled);
+            if(m_oDisplay != null)
+            {
+                m_oDisplay.ShowStatus(m_bEnabled);
+            }
         }
 
         private void Update()
@@ -55,10 +61,10 @@ namespace Twin
         IEnumerator MoveProduct()
         {
             m_oStorageSource.ModifyAmount(-1); //Cogemos pieza
-            GameObject g = Instantiate(m_oProductPrefab, m_vOrigin.position, Quaternion.identity);
-            g.GetComponent<Rigidbody>().velocity = transform.forward * m_fSpeed*0.9f;
+            //GameObject g = Instantiate(m_oProductPrefab, m_vOrigin.position, Quaternion.identity);
+            //g.GetComponent<Rigidbody>().velocity = transform.forward * m_fSpeed*0.9f;
             yield return new WaitForSeconds(m_fMoveTotalTime);
-            Destroy(g);
+            //Destroy(g);
             m_oStorageDestination.ModifyAmount(1);
         }
     }

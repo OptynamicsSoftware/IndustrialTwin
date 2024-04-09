@@ -37,10 +37,13 @@ namespace Twin
         {
             m_oLibrary = FindObjectOfType<ProductLibrary>();
             m_oProduct = m_oLibrary.GetProductByType(m_oProductType);
-            m_oDisplay.m_oLinkedMachine = this;
-            m_oDisplay.ShowStatus(m_bEnabled);
-            m_fTypicalTime = m_oDisplay.m_oSlider.value;
-            m_oDisplay.SetProductionTime(m_fTypicalTime);
+            if(m_oDisplay != null && m_oDisplay.m_oSlider != null)
+            {
+                m_oDisplay.m_oLinkedMachine = this;
+                m_oDisplay.ShowStatus(m_bEnabled);
+                m_fTypicalTime = m_oDisplay.m_oSlider.value;
+                m_oDisplay.SetProductionTime(m_fTypicalTime);
+            }
             StartCoroutine(CheckInputs());
         }
 
