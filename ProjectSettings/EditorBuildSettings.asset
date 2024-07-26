@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/ML_TrainningScene.unity
     guid: e7a7db376f74c2d438d38f4de17ea6f7
   m_configObjects: {}
