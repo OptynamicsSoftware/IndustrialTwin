@@ -10,6 +10,7 @@ namespace Twin
 {
     public class ProductionController : MonoBehaviour
     {
+        public bool m_bAutoFillLists = true, m_bBeltsShowProducts = false;
         public List<Machine> m_tMachines = new List<Machine>();
         public List<Belt> m_tBelts = new List<Belt>();
         public List<OutputTruck> m_tTrucks = new List<OutputTruck>();
@@ -29,10 +30,18 @@ namespace Twin
 
         private void Start()
         {
-            //m_tMachines = FindObjectsOfType<Machine>().ToList();
-            //m_tBelts = FindObjectsOfType<Belt>().ToList();
-            //m_tTrucks = FindObjectsOfType<OutputTruck>().ToList();
-            //m_tActivationButtons = FindObjectsOfType<ActivationButton>().ToList();
+            if(m_bAutoFillLists)
+            {
+                m_tMachines = FindObjectsOfType<Machine>().ToList();
+                m_tBelts = FindObjectsOfType<Belt>().ToList();
+                m_tTrucks = FindObjectsOfType<OutputTruck>().ToList();
+                m_tActivationButtons = FindObjectsOfType<ActivationButton>().ToList();
+
+                foreach (Belt o in m_tBelts)
+                {
+                    o.m_bShowProduct = m_bBeltsShowProducts;
+                }
+            }
 
             foreach (OutputTruck o in m_tTrucks)
             {

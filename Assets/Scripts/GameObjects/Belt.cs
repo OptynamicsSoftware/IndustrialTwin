@@ -8,8 +8,9 @@ namespace Twin
     {
         //Añadir espacio para cada producto
         public string m_sProcessName;
-        //public ProductType m_oProductType;
-        //private Product m_oProduct;
+        public bool m_bShowProduct;
+        public ProductType m_oProductType;
+        private Product m_oProduct;
         public float m_fSpeed;
         public Storage m_oStorageSource; //Crear Source como clase padre de todo lugar del que coger materias?
         public Storage m_oStorageDestination;
@@ -61,10 +62,18 @@ namespace Twin
         IEnumerator MoveProduct()
         {
             m_oStorageSource.ModifyAmount(-1); //Cogemos pieza
-            //GameObject g = Instantiate(m_oProductPrefab, m_vOrigin.position, Quaternion.identity);
-            //g.GetComponent<Rigidbody>().velocity = transform.forward * m_fSpeed*0.9f;
-            yield return new WaitForSeconds(m_fMoveTotalTime);
-            //Destroy(g);
+            if(m_bShowProduct)
+            {
+                GameObject g = Instantiate(m_oProductPrefab, m_vOrigin.position, Quaternion.identity);
+                g.GetComponent<Rigidbody>().velocity = transform.forward * m_fSpeed * 0.9f;
+                yield return new WaitForSeconds(m_fMoveTotalTime);
+                Destroy(g);
+            }
+            else
+            {
+                yield return new WaitForSeconds(m_fMoveTotalTime);
+
+            }
             m_oStorageDestination.ModifyAmount(1);
         }
     }

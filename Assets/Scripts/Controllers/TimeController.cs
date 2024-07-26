@@ -13,12 +13,13 @@ namespace Twin
         static public TimeController Instance;
 
         float m_fLastMinuteMoment = 0;
+        public float m_fStartingSpeed = 1;
 
         public Text m_oSpeedValue;
 
         private void Start()
         {
-            Time.timeScale = 16;
+            Time.timeScale = m_fStartingSpeed;
             Instance = this;
         }
 
