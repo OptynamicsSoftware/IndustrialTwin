@@ -18,7 +18,6 @@ namespace Twin
 
         [HideInInspector]
         public StorageDisplay m_oDisplay;
-
         private void Start()
         {
             m_oDisplay.SetValue(m_fAmount);

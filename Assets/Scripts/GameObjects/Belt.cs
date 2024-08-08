@@ -26,6 +26,12 @@ namespace Twin
 
         [HideInInspector]
         public BeltDisplay m_oDisplay;
+        EconomyController m_oEconomy;
+
+        private void Awake()
+        {
+            m_oEconomy = FindAnyObjectByType<EconomyController>();
+        }
 
         private void Start()
         {
@@ -54,6 +60,7 @@ namespace Twin
                 if(((m_oStorageSource.m_fAmount > 0)||(m_oStorageSource.m_bInfiniteMaterial)) && Time.time > m_fInputTimeInterval + m_fInputLastTime)
                 {
                     StartCoroutine(MoveProduct());
+                    m_oEconomy.BuyProduct(m_oProductType);
                     m_fInputLastTime = Time.time;
                 }
             }
