@@ -2,19 +2,21 @@ behaviors:
   OptimizeProduction:
     trainer_type: ppo
     time_horizon: 512
-    max_steps: 1000000
+    max_steps: 2000000
     hyperparameters:
+      batch_size: 2048
+      buffer_size: 20480
       learning_rate: 0.0001
       beta: 0.05
       epsilon: 0.3
     network_settings:
-      hidden_units: 128
-      num_layers:   2
+      hidden_units: 256
+      num_layers:   3
       normalize: true
     reward_signals:
       extrinsic:
         gamma: 0.9975
         network_settings:
-          hidden_units: 128
-          num_layers:   2
+          hidden_units: 256
+          num_layers:   3
           normalize: true

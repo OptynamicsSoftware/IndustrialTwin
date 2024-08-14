@@ -52,6 +52,18 @@ namespace Twin
             {
                 sensor.AddObservation(oStorage.m_fAmount);
             }
+            foreach (Belt oBelt in m_oProductionController.m_tBelts)
+            {
+                sensor.AddObservation(oBelt.m_fInputTimeInterval);
+            }
+            foreach (Machine oMachine in m_oProductionController.m_tMachines)
+            {
+                sensor.AddObservation(oMachine.m_fTypicalTime);
+            }
+            foreach (OutputTruck oTruck in m_oProductionController.m_tTrucks)
+            {
+                sensor.AddObservation(oTruck.m_fAmountToGet);
+            }
         }
 
         public override void OnEpisodeBegin()

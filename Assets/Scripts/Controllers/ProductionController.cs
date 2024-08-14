@@ -62,10 +62,10 @@ namespace Twin
             m_fAmountLastMinute += f;
             m_fTotalAmount += f;
 
-            if(m_bTraining)
-            {
-                m_oAgent.SetReward(f);
-            }
+            //if (m_bTraining)
+            //{
+            //    m_oAgent.AddReward(f);
+            //}
         }
 
         public void StartSimulation()
@@ -88,9 +88,9 @@ namespace Twin
         {
             m_tValues.Add(m_fAmountLastMinute);
             m_oEconomyController.m_tValues.Add(m_oEconomyController.m_fMoneyMadeLastMinute);
-            if(m_bRecording && m_fAmountLastMinute > RecordKeeping.m_fRecord)
+            if(m_bRecording && m_oEconomyController.m_fMoneyMadeLastMinute > RecordKeeping.GetRecord())
             {
-                RecordKeeping.m_fRecord = m_fAmountLastMinute;
+                RecordKeeping.SetRecord(m_oEconomyController.m_fMoneyMadeLastMinute);
                 RecordKeeping.RecordSettings(this);
             }
             if(m_bTraining)
@@ -98,8 +98,7 @@ namespace Twin
                 m_iMinutesElapsed++;
                 if (m_iMinutesElapsed % m_iMinutesPerEpisode == 0)
                 {
-                    m_oAgent.EndEpisode();
-                    //m_oAgent.SetReward(m_fAmountLastMinute);
+                    m_oAgent.EndEpisode();                    
                 }
             }
             m_oAmountLastMinuteDisplay.text = m_fAmountLastMinute.ToString();

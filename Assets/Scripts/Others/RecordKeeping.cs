@@ -8,7 +8,7 @@ namespace Twin
     public class RecordKeeping
     {
         public static string m_sPath = "";
-        public static float m_fRecord = 0;
+        private static float m_fRecord = Mathf.NegativeInfinity;
         static public void RecordSettings(ProductionController _oProdControl)
         {
 
@@ -30,6 +30,7 @@ namespace Twin
 
             StreamWriter oWriter = new StreamWriter(sPath);
 
+            oWriter.WriteLine("Profit: " + _oProdControl.m_oEconomyController.m_fMoneyMadeLastMinute);
             oWriter.WriteLine("Last minute production: " + _oProdControl.m_fAmountLastMinute);
             oWriter.WriteLine("Wood belt input: " + _oProdControl.m_tBelts[0].m_fInputTimeInterval);
             oWriter.WriteLine("Iron belt input: " + _oProdControl.m_tBelts[1].m_fInputTimeInterval);
@@ -38,6 +39,14 @@ namespace Twin
             oWriter.WriteLine("Truck amount: " + _oProdControl.m_tTrucks[0].m_fAmountToGet);
 
             oWriter.Close();
+        }
+        public static float GetRecord()
+        {
+            return m_fRecord;
+        }
+        public static void SetRecord(float _fAmount)
+        {
+            m_fRecord = _fAmount;
         }
     }
 
